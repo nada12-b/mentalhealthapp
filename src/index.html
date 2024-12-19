@@ -9,12 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <div class="hero-bg">
-        <!-- ========== Start Navbar ========== -->
+        <!-- ========== Start navbar  ========== -->
         <nav class="navbar">
             <div class="container flex-container">
                 <div class="navbar__logo">
@@ -23,29 +23,55 @@
                 <ul class="navbar__list">
                     <li class="navbar__list-item"><a href="#hero">Accueil</a></li>
                     <li class="navbar__list-item"><a href="#leading">Nos Thérapeutes</a></li>
+
                     <li class="navbar__list-item"><a href="#newsletter">Contactez-nous</a></li>
                 </ul>
+
+
             </div>
         </nav>
-        <!-- ========== End Navbar ========== -->
+        <!-- ========== End navbar  ========== -->
 
-        <!-- ========== Start Hero ========== -->
+        <!-- ========== Start hero ========== -->
         <header class="hero" id="hero">
             <div class="container flex-container">
                 <div class="hero__info">
-                    <h2 class="hero__title">Prenez soin de votre bien-être mental</h2>
-                    <p class="hero__desc">Nous sommes là pour vous écouter et vous aider à trouver la sérénité.</p>
-                    <p class="hero__desc">Prenez rendez-vous avec nos experts dès aujourd'hui.</p>
+                    <h2 class="hero__title">
+                        Prenez soin de votre bien-être mental
+                    </h2>
+                    <p class="hero__desc">
+                        Nous sommes là pour vous écouter et vous aider à trouver la sérénité.
+                    </p>
+                    <p class="hero__desc">
+                        Prenez rendez-vous avec nos experts dès aujourd'hui.
+                    </p>
                     <div class="hero__action">
-                        <button class="active-btn btn">Réservez une séance</button>
-                        <button class="disabled-btn btn" onclick="location.href='#faq'">En savoir plus</button>
+                        <button class="active-btn btn">
+                            Réservez une séance
+                        </button>
+                        <button class="diasbled-btn" onclick="location.href='#faq'">
+                            En savoir plus
+                        </button>
+
                     </div>
+                    <div class="hero__form">
+                        <h3 class="hero__form-title">Téléchargez un Fichier</h3>
+                        <p class="hero__desc">Ajoutez un fichier pour accompagner votre demande.</p>
+                        <div class="file-upload-container">
+                            <label for="fileInput" class="file-upload-label">Choisissez un fichier :</label>
+                            <input type="file" id="fileInput" class="file-upload-input" />
+                            <button id="uploadButton" class="btn active-btn">Uploader</button>
+                        </div>
+                        <p id="uploadResult" class="upload-result"></p>
+                    </div>
+
                 </div>
 
-                <!-- Form Section for Availability Check -->
+                <script src="main.js"></script>
+
                 <div class="hero__form">
                     <h3 class="hero__form-title">Réservez votre séance</h3>
-                    <form class="hero__form-form" id="availabilityForm">
+                    <form class="hero__form-form" action="">
                         <label for="name">Nom *</label>
                         <input type="text" name="name" id="name" placeholder="Nom complet *" required>
 
@@ -66,61 +92,276 @@
                         <button type="button" class="active-btn btn" id="getSlotsButton">
                             Vérifiez la disponibilité
                         </button>
+
                     </form>
 
-                    <!-- Availability Results -->
                     <div id="availability" class="availability-container">
-                        <h4>Disponibilités :</h4>
                         <ul id="slotsList"></ul>
                     </div>
                 </div>
+
+
+
             </div>
         </header>
-        <!-- ========== End Hero ========== -->
+        <!-- ========== End hero ========== -->
     </div>
 
-    <!-- ========== File Upload Section ========== -->
-    <section id="fileUpload" class="file-upload-section">
-        <div class="container">
-            <h2>Upload de Fichier</h2>
-            <p>Attachez un fichier à votre demande :</p>
-            <input type="file" id="fileInput" />
-            <button id="uploadButton" class="btn">Uploader le fichier</button>
-        </div>
-    </section>
 
-    <!-- ========== Start Leading ========== -->
+
+
+
+
+
+    <!-- ========== Start leading ========== -->
     <section class="leading" id="leading">
         <section class="flex-container container">
             <header class="section__header">
-                <h3 class="section__title">Rencontrez nos thérapeutes</h3>
-                <p class="section__desc">Nos thérapeutes expérimentés sont là pour vous aider à prioriser votre santé
-                    mentale et votre bien-être.</p>
+                <h3 class="section__title">
+                    Rencontrez nos thérapeutes
+                </h3>
+                <p class="section__desc">
+                    Nos thérapeutes expérimentés sont là pour vous aider à prioriser votre santé mentale et votre
+                    bien-être.
+                </p>
             </header>
             <div class="leading__cards">
+
                 <div class="leading__cards-card">
                     <div class="leading__cards-card-header">
                         <div class="card-icon">
                             <img class="person-icon" src="./assets/images/slaoui.jpg" alt="person-icon">
+
+
                         </div>
-                        <h5 class="card-title">Dr. Kenza Slaoui</h5>
+                        <h5 class="card-title">
+                            Dr. Kenza Slaoui
+                        </h5>
                     </div>
                     <div class="leading__cards-card-info">
                         <ul>
-                            <li class="leading__cards-card-info-li">Titulaire d'un diplôme en Psychologie clinique...
+                            <li class="leading__cards-card-info-li"> Titulaire d'un diplôme en Psychologie clinique et
+                                en psychopathologie intégrative , Dr. Kenza Slaoui est particulièrement
+                                compétente dans la gestion des troubles anxieux et dépressifs
+                                grâce à son expertise en thérapie cognitivo-comportementale.
                             </li>
+
+
                             <li><a href="#">Réserver une séance</a></li>
+
+
+
                         </ul>
                     </div>
                 </div>
-                <!-- Additional therapist cards can go here -->
+                <!-- card end  -->
+                <!-- card start  -->
+                <div class="leading__cards-card">
+                    <div class="leading__cards-card-header">
+                        <div class="card-icon">
+                            <img class="person-icon" src="./assets/images/glibi.jpg" alt="person-icon">
+
+
+                        </div>
+                        <h5 class="card-title">
+                            Dr. Kenza Glibi
+                        </h5>
+                    </div>
+                    <div class="leading__cards-card-info">
+                        <ul>
+                            <li class="leading__cards-card-info-li"> Psychologue clinicienne ayant travaillé dans un
+                                centre SSR (Soins de Suite et de Réadaptation) en France, Kenza Glibi excelle dans les
+                                entretiens individuels et le
+                                soutien familial, en collaboration avec des équipes pluridisciplinaires pour offrir des
+                                soins holistiques.</li>
+
+                            <li>
+                                <a href="#">Réserver une séance</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- card end  -->
+                <!-- card start  -->
+                <div class="leading__cards-card">
+                    <div class="leading__cards-card-header">
+                        <div class="card-icon">
+                            <img class="person-icon" src="./assets/images/maaouni.jpg" alt="person-icon">
+
+
+                        </div>
+                        <h5 class="card-title">
+                            Dr. Jaafar Maaoun
+                        </h5>
+                    </div>
+                    <div class="leading__cards-card-info">
+                        <ul>
+                            <li class="leading__cards-card-info-li"> Thérapeute basé à Paris, Jaafar Maaoun propose un
+                                accompagnement bienveillant et professionnel, adapté aux besoins spécifiques de ses
+                                patients. Son expérience internationale enrichit son approche
+                                pour soutenir le bien-être
+                                mental de chacun.</li>
+                            <li>
+                                <a href="#">Réserver une séance</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- card end  -->
             </div>
         </section>
     </section>
-    <!-- ========== End Leading ========== -->
+    <!-- ========== End leading ========== -->
+    <!-- ========== Start FAQ ========== -->
+    <section class="faq reviews" id="faq">
 
-    <!-- JavaScript -->
-    <script src="main.js"></script>
+        <div class="flex-container container">
+            <div class="section__header">
+                <h3 class="section__title">
+                    FAQ
+                </h3>
+                <p class="section__desc">
+                    Découvrez les réponses aux questions fréquemment posées sur nos thérapeutes et nos services.
+                </p>
+            </div>
+            <div class="faq__cards reviews__cards">
+
+                <article class="faq__cards-card">
+                    <div class="faq__cards-card-header">
+                        <img class="arrow-icon" src="./assets/icons/right-arrow.svg" alt="arrow-icon">
+                    </div>
+                    <div class="faq__cards-card-body">
+                        <h4>
+                            Où trouver le bureau de la cellule d'écoute ?
+                        </h4>
+                        <p class="faq__cards-card-info reviews__cards-card-info">
+                            Batiment 1 - 1er etage - Salle
+                        </p>
+                    </div>
+                </article>
+                <article class="faq__cards-card">
+                    <div class="faq__cards-card-header">
+                        <img class="arrow-icon" src="./assets/icons/right-arrow.svg" alt="arrow-icon">
+                    </div>
+                    <div class="faq__cards-card-body">
+                        <h4>
+                            Comment contacter Dr. Kenza Slaoui ?
+                        </h4>
+                        <p class="faq__cards-card-info reviews__cards-card-info">
+                            Kenzaslaouipsy@gmail.com <br>
+                            06 61 07 16 03
+
+                        </p>
+                    </div>
+                </article>
+                <article class="faq__cards-card">
+                    <div class="faq__cards-card-header">
+                        <img class="arrow-icon" src="./assets/icons/right-arrow.svg" alt="arrow-icon">
+                    </div>
+                    <div class="faq__cards-card-body">
+                        <h4>
+                            Disponibilités de Dr. Kenza Slaoui ?
+                        </h4>
+                        <p class="faq__cards-card-info reviews__cards-card-info">
+                            Mardi et Jeudi <br> 9H30 à 12H30
+                        </p>
+                    </div>
+                </article>
+            </div>
+            <div class="faq__cards reviews__cards">
+
+                <article class="faq__cards-card">
+                    <div class="faq__cards-card-header">
+                        <img class="arrow-icon" src="./assets/icons/right-arrow.svg" alt="arrow-icon">
+                    </div>
+                    <div class="faq__cards-card-body">
+                        <h4>
+                            Comment contacter Dr. Kenza Glibi ?
+                        </h4>
+                        <p class="faq__cards-card-info reviews__cards-card-info">
+                            Kenzaglib@live.fr <br>
+                            06 60 30 21 19
+                        </p>
+                    </div>
+                </article>
+                <article class="faq__cards-card">
+                    <div class="faq__cards-card-header">
+                        <img class="arrow-icon" src="./assets/icons/right-arrow.svg" alt="arrow-icon">
+                    </div>
+                    <div class="faq__cards-card-body">
+                        <h4>
+                            Disponibilités de Dr. Kenza Glibi ?
+                        </h4>
+                        <p class="faq__cards-card-info reviews__cards-card-info">
+                            Mercredi et Vendredi <br> 12H30 à 15H30
+                        </p>
+                    </div>
+                </article>
+                <article class="faq__cards-card">
+                    <div class="faq__cards-card-header">
+                        <img class="arrow-icon" src="./assets/icons/right-arrow.svg" alt="arrow-icon">
+                    </div>
+                    <div class="faq__cards-card-body">
+                        <h4>
+                            Comment contacter Dr. Jaafar Maaoun ?
+                        </h4>
+                        <p class="faq__cards-card-info reviews__cards-card-info">
+                            Jaafar.maaouni@gmail.com <br>
+                            07 70 00 20 65
+                        </p>
+                    </div>
+                </article>
+            </div>
+            <div class="faq__cards reviews__cards">
+
+                <article class="faq__cards-card">
+                    <div class="faq__cards-card-header">
+                        <img class="arrow-icon" src="./assets/icons/right-arrow.svg" alt="arrow-icon">
+                    </div>
+                    <div class="faq__cards-card-body">
+                        <h4>
+                            Disponibilités de Dr. Jaafar Maaoun ?
+                        </h4>
+                        <p class="faq__cards-card-info reviews__cards-card-info">
+                            Merdi et Jeudi <br>
+                            17H30 à 20H
+                        </p>
+                    </div>
+                </article>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- ========== End FAQ ========== -->
+
+
+    <!-- ========== Start Newsletter ========== -->
+    <section class="newsletter" id="newsletter">
+
+        <div class="container flex-container">
+            <div class="newsletter__header section__header">
+                <h4 class="section__title newsletter__title">
+                    Restez connecté
+                </h4>
+                <h4 class="newsletter__title-responsive">
+                    Abonnez-vous à notre newsletter
+                </h4>
+                <div class="newsletter__desc section__desc">
+                    Recevez les dernières actualités et conseils sur la santé mentale directement dans votre boîte mail.
+                </div>
+            </div>
+            <div class="newsletter__subscribe">
+                <label for="subscribe"></label>
+                <input type="email" name="subscribe" id="subscribe" placeholder="Votre adresse email">
+                <button class="newsletter__submit btn">S'abonner</button>
+            </div>
+        </div>
+    </section>
+    <!-- ========== End Newsletter ========== -->
+
+
+
 </body>
 
 </html>
