@@ -1,7 +1,6 @@
+// main.js
 
 const apiBaseUrl = "https://mentalhealthfunctions.azurewebsites.net/api";
-
-
 const uploadAttachmentEndpoint = `${apiBaseUrl}/uploadAttachment`;
 const fetchDataEndpoint = `${apiBaseUrl}/fetchData`;
 const bookAppointmentEndpoint = `${apiBaseUrl}/sendConfirmationEmail`;
@@ -24,7 +23,7 @@ async function uploadFile(file) {
             throw new Error("Failed to upload file");
         }
 
-        const fileUrl = await response.text();
+        const fileUrl = await response.text(); // Expect file URL from backend
         console.log("File uploaded successfully:", fileUrl);
         alert(`Fichier téléchargé avec succès! Accédez-y ici: ${fileUrl}`);
     } catch (error) {
@@ -66,7 +65,7 @@ async function fetchAvailability(therapistId, date) {
             return;
         }
 
-        const availability = await response.json(); // Backend returns availability as JSON
+        const availability = await response.json();
         console.log("Disponibilités récupérées avec succès :", availability);
 
         if (availability.length === 0) {
@@ -81,7 +80,7 @@ async function fetchAvailability(therapistId, date) {
             slotsList.appendChild(listItem);
 
             const option = document.createElement("option");
-            option.value = slot.start_time; // Use start time as the value
+            option.value = slot.start_time;
             option.textContent = `${slot.start_time} - ${slot.end_time}`;
             timeSlotDropdown.appendChild(option);
         });
@@ -93,9 +92,7 @@ async function fetchAvailability(therapistId, date) {
     }
 }
 
-
 async function bookAppointment() {
-
     const therapistSelect = document.getElementById("therapistSelect");
     const dateInput = document.getElementById("appointmentDate");
     const nameInput = document.getElementById("name");
@@ -103,8 +100,6 @@ async function bookAppointment() {
     const timeSlot = document.getElementById("timeSlot").value;
 
     const therapist = therapistSelect.options[therapistSelect.selectedIndex].text;
-
-
     const date = dateInput.value;
     const name = nameInput.value;
     const email = emailInput.value;
@@ -142,7 +137,6 @@ async function bookAppointment() {
     }
 }
 
-
 function handleFileUpload() {
     const fileInput = document.getElementById("fileInput");
     const file = fileInput.files[0];
@@ -152,7 +146,6 @@ function handleFileUpload() {
         alert("Veuillez sélectionner un fichier à télécharger.");
     }
 }
-
 
 function handleFetchAvailability() {
     const therapistSelect = document.getElementById("therapistSelect");
@@ -173,4 +166,3 @@ function handleFetchAvailability() {
 document.getElementById("uploadButton").addEventListener("click", handleFileUpload);
 document.getElementById("getSlotsButton").addEventListener("click", handleFetchAvailability);
 document.getElementById("bookButton").addEventListener("click", bookAppointment);
-
