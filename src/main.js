@@ -183,3 +183,4 @@ function handleFetchAvailability() {
 document.getElementById("uploadButton").addEventListener("click", handleFileUpload);
 document.getElementById("getSlotsButton").addEventListener("click", handleFetchAvailability);
 document.getElementById("bookButton").addEventListener("click", bookAppointment);
+
