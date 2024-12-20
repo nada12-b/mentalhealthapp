@@ -110,7 +110,8 @@ async function bookAppointment() {
     const emailInput = document.getElementById("email");
     const timeSlot = document.getElementById("timeSlot").value;
 
-    const therapist = therapistSelect.options[therapistSelect.selectedIndex].text;
+    const therapist = therapistSelect.value;
+
     const date = dateInput.value;
     const name = nameInput.value;
     const email = emailInput.value;
