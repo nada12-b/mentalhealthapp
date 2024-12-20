@@ -46,15 +46,6 @@
                         Prenez rendez-vous avec nos experts dès aujourd'hui.
                     </p>
                     <div class="hero__action">
-                        <button class="active-btn btn">
-                            Réservez une séance
-                        </button>
-                        <button class="diasbled-btn" onclick="location.href='#faq'">
-                            En savoir plus
-                        </button>
-
-                    </div>
-                    <div class="hero__form">
                         <h3 class="hero__form-title">Téléchargez un Fichier</h3>
                         <p class="hero__desc">Ajoutez un fichier pour accompagner votre demande.</p>
                         <div class="file-upload-container">
@@ -63,7 +54,9 @@
                             <button id="uploadButton" class="btn active-btn">Uploader</button>
                         </div>
                         <p id="uploadResult" class="upload-result"></p>
+
                     </div>
+
 
                 </div>
 
@@ -92,12 +85,35 @@
                         <button type="button" class="active-btn btn" id="getSlotsButton">
                             Vérifiez la disponibilité
                         </button>
-
                     </form>
 
                     <div id="availability" class="availability-container">
-                        <ul id="slotsList"></ul>
+                        <h4>Disponibilités :</h4>
+                        <ul id="slotsList">
+                            <li>Aucune disponibilité trouvée pour le moment.</li>
+                        </ul>
+                        <div id="selectedSlot">
+                            <label for="timeSlot">Choisissez un créneau horaire :</label>
+                            <select id="timeSlot" name="timeSlot" required>
+                                <option value="">Sélectionnez une disponibilité</option>
+                            </select>
+                        </div>
                     </div>
+
+                    <button id="bookButton" class="btn active-btn" style="display: none;">Réservez votre
+                        rendez-vous</button>
+                </div>
+
+                <!-- File Upload Section -->
+                <div class="hero__form">
+                    <h3 class="hero__form-title">Téléchargez un Fichier</h3>
+                    <p class="hero__desc">Ajoutez un fichier pour accompagner votre demande.</p>
+                    <div class="file-upload-container">
+                        <label for="fileInput" class="file-upload-label">Choisissez un fichier :</label>
+                        <input type="file" id="fileInput" class="file-upload-input" />
+                        <button id="uploadButton" class="btn active-btn">Uploader</button>
+                    </div>
+                    <p id="uploadResult" class="upload-result"></p>
                 </div>
 
 
