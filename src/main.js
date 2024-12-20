@@ -1,7 +1,7 @@
-// Define the base URL for the Azure Function App
+
 const apiBaseUrl = "https://mentalhealthfunctions.azurewebsites.net/api";
 
-// Endpoints for the functions
+
 const uploadAttachmentEndpoint = `${apiBaseUrl}/uploadAttachment`;
 const fetchDataEndpoint = `${apiBaseUrl}/fetchData`;
 const bookAppointmentEndpoint = `${apiBaseUrl}/sendConfirmationEmail`;
@@ -24,9 +24,9 @@ async function uploadFile(file) {
             throw new Error("Failed to upload file");
         }
 
-        const fileUrl = await response.text(); // Backend returns the file URL
+        const fileUrl = await response.text();
         console.log("File uploaded successfully:", fileUrl);
-        alert(`Fichier téléchargé avec succès ! Accédez-y ici : ${fileUrl}`);
+        alert(`Fichier téléchargé avec succès! Accédez-y ici: ${fileUrl}`);
     } catch (error) {
         console.error("Error uploading file:", error);
         alert("Erreur lors du téléchargement du fichier. Veuillez réessayer.");
@@ -39,11 +39,6 @@ async function uploadFile(file) {
  * @param {string} date - The date in YYYY-MM-DD format.
  */
 async function fetchAvailability(therapistId, date) {
-    const requestBody = {
-        therapist_id: therapistId,
-        date: date,
-    };
-
     const slotsList = document.getElementById("slotsList");
     const timeSlotDropdown = document.getElementById("timeSlot");
     const loader = document.getElementById("loadingIndicator");
@@ -54,13 +49,12 @@ async function fetchAvailability(therapistId, date) {
 
     loader.style.display = "block"; // Show loader
 
+    // Construct URL with query parameters
+    const url = `${fetchDataEndpoint}?therapist_id=${therapistId}&date=${date}`;
+
     try {
-        const response = await fetch(fetchDataEndpoint, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(requestBody),
+        const response = await fetch(url, {
+            method: "GET",
         });
 
         if (!response.ok) {
@@ -95,22 +89,21 @@ async function fetchAvailability(therapistId, date) {
         console.error("Error fetching availability:", error);
         alert("Erreur lors de la récupération des disponibilités. Veuillez réessayer.");
     } finally {
-        loader.style.display = "none"; // Hide loader
+        loader.style.display = "none";
     }
 }
 
-/**
- * Book an appointment and send a confirmation email.
- */
+
 async function bookAppointment() {
-    // Collect form data
+
     const therapistSelect = document.getElementById("therapistSelect");
     const dateInput = document.getElementById("appointmentDate");
     const nameInput = document.getElementById("name");
     const emailInput = document.getElementById("email");
     const timeSlot = document.getElementById("timeSlot").value;
 
-    const therapist = therapistSelect.value;
+    const therapist = therapistSelect.options[therapistSelect.selectedIndex].text;
+
 
     const date = dateInput.value;
     const name = nameInput.value;
@@ -149,9 +142,7 @@ async function bookAppointment() {
     }
 }
 
-/**
- * Handle file upload from the user.
- */
+
 function handleFileUpload() {
     const fileInput = document.getElementById("fileInput");
     const file = fileInput.files[0];
@@ -162,9 +153,7 @@ function handleFileUpload() {
     }
 }
 
-/**
- * Handle availability fetch request from the user.
- */
+
 function handleFetchAvailability() {
     const therapistSelect = document.getElementById("therapistSelect");
     const dateInput = document.getElementById("appointmentDate");
